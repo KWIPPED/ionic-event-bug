@@ -16,13 +16,35 @@
       <div id="container">
         <strong>Ready to create an app?</strong>
         <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <BR/>
+         Open the inspector and click on the input below. You will see the following order of events:<BR/>
+        <BR/>
+         <table style="width:100%">
+           <thead>
+            <tr>
+              <th class="ion-text-end">Action</th>
+              <th>Events fired</th>
+            </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td class="ion-text-end">On focus</td>
+            <td>focus / blur /focus</td>
+          </tr>
+          <tr>
+            <td class="ion-text-end">On blur</td>
+            <td>blur</td>
+          </tr>
+          </tbody>
+        </table>
+         <ion-input @ionFocus="focus()"  @ionBlur="blur()" placeholder="click in here"></ion-input>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar,IonInput } from '@ionic/vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -32,7 +54,16 @@ export default defineComponent({
     IonHeader,
     IonPage,
     IonTitle,
-    IonToolbar
+    IonToolbar,
+    IonInput
+  },
+  methods:{
+    focus:function(){
+      console.log("Focus Fired")
+    },
+    blur:function(){
+      console.log("Blur Fired")
+    }
   }
 });
 </script>
